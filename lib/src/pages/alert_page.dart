@@ -1,6 +1,23 @@
 import 'package:flutter/material.dart';
 
 class AlertPage extends StatelessWidget {
+  final elevatedButtonStyle = ElevatedButton.styleFrom(
+    // onPrimary: Colors.black87,
+    // primary: Colors.grey[300],
+    // minimumSize: Size(88, 36),
+    // padding: EdgeInsets.symmetric(horizontal: 16),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+    ),
+  );
+  final textButtonStyle = TextButton.styleFrom(
+    primary: Colors.black87,
+    minimumSize: Size(88, 36),
+    padding: EdgeInsets.symmetric(horizontal: 16.0),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(2.0)),
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,47 +25,50 @@ class AlertPage extends StatelessWidget {
         title: Text('Alert Page'),
       ),
       body: Center(
-        child: RaisedButton(
-          child: Text('Mostrar alerta'),
-          color: Colors.blue,
-          textColor: Colors.white,
-          onPressed:()=>this._mostrarAlerta(context),
-          shape: StadiumBorder(),
+        child: ElevatedButton(
+          child: Text(
+            'Mostrar alerta',
+          ),
+          style: elevatedButtonStyle,
+          onPressed: () => this._mostrarAlerta(context),
         ),
       ),
     );
   }
-  void _mostrarAlerta(BuildContext context){
+
+  void _mostrarAlerta(BuildContext context) {
     showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          title: Text('titulo'),
-          content: Column(
-            // se adapta el tamaño al contenido
-            //el contenido dice que tan ancho es
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text('contenido caja alerta'),
-              FlutterLogo(size: 100.0,)
-            ],
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Cancelar'),
-              onPressed: ()=>Navigator.of(context).pop(),
+        context: context,
+        barrierDismissible: false,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            title: Text('titulo'),
+            content: Column(
+              // se adapta el tamaño al contenido
+              //el contenido dice que tan ancho es
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text('contenido caja alerta'),
+                FlutterLogo(
+                  size: 100.0,
+                )
+              ],
             ),
-            FlatButton(
-              child: Text('Ok'),
-              onPressed: (){
-                Navigator.of(context).pop();
-              },
-            )
-          ],
-        );
-      }
-    );
+            actions: <Widget>[
+              TextButton(
+                child: Text('Cancelar'),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              TextButton(
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
   }
 }

@@ -10,7 +10,7 @@ class ListViewPage extends StatefulWidget {
 class _ListViewPageState extends State<ListViewPage> {
   ScrollController _scrollController = new ScrollController();
 
-  List<int> _listaEnteros = new List();
+  List<int> _listaEnteros = [];
   int _ultimoItem = 0;
   bool _isloading = false;
 

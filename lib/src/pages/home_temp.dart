@@ -12,20 +12,7 @@ class HomePageTemp extends StatelessWidget {
       body: ListView(children: this._crearItemsCorta()),
     );
   }
-
-  List<Widget> _crearItems() {
-    List<Widget> lista = List<Widget>();
-    for (String opt in this.opciones) {
-      final tempWidget = ListTile(
-        title: Text(opt),
-      );
-
-      lista..add(tempWidget)..add(Divider());
-    }
-
-    return lista;
-  }
-
+  
   List<Widget> _crearItemsCorta() {
     var widgets = this.opciones.map((item) {
       return Column(

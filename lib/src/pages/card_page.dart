@@ -49,11 +49,11 @@ class CardPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              FlatButton(
+              TextButton(
                 child: Text('Cancelar'),
                 onPressed: () {},
               ),
-              FlatButton(
+              TextButton(
                 child: Text('Ok'),
                 onPressed: () {},
               )
